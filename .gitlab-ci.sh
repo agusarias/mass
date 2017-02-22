@@ -16,7 +16,7 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install
 
 # Copy over testing configuration. This configuration is used for Gitlab CI unit testing
-cp -v .env.testing .env
+cp -v .env.testing.gitlab .env
 
 # Generate an application key. Clear config and cache route
 php artisan key:generate
