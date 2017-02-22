@@ -16,7 +16,17 @@ class MainTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create()->each(function (User $u) {
+        $users = collect([]);
+
+        $users->push(factory(User::class)->create([
+            'name' => 'Admin',
+            'email' => 'admin@test.com',
+            'password' => bcrypt('123456'),
+        ]));
+
+        $users->merge(factory(User::class, 10)->create());
+
+        $users->each(function (User $u) {
             factory(Post::class, 3)->create([
                 'user_id' => $u->id,
             ])->each(function (Post $post) use ($u) {
