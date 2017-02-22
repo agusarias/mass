@@ -1,0 +1,13 @@
+before_script:
+  - bash .gitlab-ci.sh
+
+variables:
+  MYSQL_DATABASE: mass
+  MYSQL_ROOT_PASSWORD: secret
+
+phpunit:php-laravel-env:mysql:
+  image: karbon001/gitlab-ci-laravel-php:latest
+  services:
+    - mysql:latest
+  script:
+    - php vendor/bin/phpunit --colors
