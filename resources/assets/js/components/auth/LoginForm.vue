@@ -1,58 +1,45 @@
 <template>
-    <div class="panel panel-default">
-        <div class="panel-heading">Login</div>
-        <div class="panel-body">
-            <form class="form-horizontal" role="form" method="POST" :action="routeLogin">
-                <csrf></csrf>
+    <md-layout>
+        <md-layout md-align="center"
+                   md-flex-small="80" md-flex-offset-small="10"
+                   md-flex="33" md-flex-offset="33">
 
-                <div :class="[{ 'has-errors': errorEmail }, 'form-group']">
-                    <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+            <md-whiteframe class="wrapper">
+                <md-layout md-gutter md-column>
 
-                    <div class="col-md-6">
-                        <input id="email" type="email" class="form-control" name="email" v-model="email" required autofocus>
+                    <span class="md-title">Login</span>
 
-                        <span class="help-block" v-if="errorEmail">
-                            <strong>{{ errorEmail }}</strong>
-                        </span>
-                    </div>
-                </div>
+                    <form ref="form" role="form" method="POST" :action="routeLogin">
+                        <csrf></csrf>
 
-                <div :class="[{ 'has-errors': errorPassword }, 'form-group']">
-                    <label for="password" class="col-md-4 control-label">Password</label>
+                        <md-input-container :class="{'md-input-invalid': errorEmail}">
+                            <label>E-Mail Address</label>
+                            <md-input required v-model="email" name="email"></md-input>
+                            <span class="md-error" v-if="errorEmail">
+                                {{ errorEmail }}
+                            </span>
+                        </md-input-container>
 
-                    <div class="col-md-6">
-                        <input id="password" type="password" class="form-control" name="password" v-model="password" required>
+                        <md-input-container :class="{'md-input-invalid': errorEmail}">
+                            <label>Password</label>
+                            <md-input required v-model="password" name="password" type="password"></md-input>
+                            <span class="md-error" v-if="errorPassword">
+                                {{ errorPassword }}
+                            </span>
+                        </md-input-container>
 
-                        <span class="help-block" v-if="errorPassword">
-                            <strong>{{ errorPassword }}</strong>
-                        </span>
-                    </div>
-                </div>
+                        <md-checkbox name="remember" v-model="remember">Remember Me</md-checkbox>
 
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember" v-model="remember"> Remember Me
-                            </label>
-                        </div>
-                    </div>
-                </div>
+                    </form>
 
-                <div class="form-group">
-                    <div class="col-md-8 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary">
-                            Login
-                        </button>
+                    <md-button class="md-raised md-primary" @click.native="login">Login</md-button>
+                    <md-button :href="routeRequest" class="md-caption md-dense">Forgot Your Password?</md-button>
 
-                        <a class="btn btn-link" :href="routeRequest">
-                            Forgot Your Password?
-                        </a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+                </md-layout>
+            </md-whiteframe>
+
+        </md-layout>
+    </md-layout>
 </template>
 
 <script>
@@ -67,16 +54,24 @@
             oldPassword: String,
             oldRemember: String
         },
-        data: function(){
+        data: function () {
             return {
                 email: this.oldEmail,
                 password: this.oldPassword,
                 remember: this.oldRemember,
             }
         },
+        methods: {
+            login: function () {
+                this.$refs.form.submit();
+            }
+        }
     }
 </script>
 
 <style>
-
+    .wrapper {
+        margin-top: 40px;
+        padding: 20px;
+    }
 </style>

@@ -10786,19 +10786,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
@@ -10817,6 +10804,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             password: this.oldPassword,
             remember: this.oldRemember
         };
+    },
+    methods: {
+        login: function login() {
+            this.$refs.form.submit();
+        }
     }
 };
 
@@ -10872,6 +10864,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = {
     props: {
@@ -10886,7 +10879,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         logout: function logout() {
-            console.log(1);
+            this.$refs.logoutForm.submit();
         }
     }
 };
@@ -10967,14 +10960,14 @@ Vue.component('user-menu', __webpack_require__(44));
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.wrapper {\n    margin-top: 40px;\n    padding: 20px;\n}\n", ""]);
 
 /***/ }),
 /* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(9)();
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 /***/ }),
 /* 40 */
@@ -38410,99 +38403,82 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', {
-    staticClass: "panel panel-default"
-  }, [_c('div', {
-    staticClass: "panel-heading"
-  }, [_vm._v("Login")]), _vm._v(" "), _c('div', {
-    staticClass: "panel-body"
-  }, [_c('form', {
-    staticClass: "form-horizontal",
+  return _c('md-layout', [_c('md-layout', {
+    attrs: {
+      "md-align": "center",
+      "md-flex-small": "80",
+      "md-flex-offset-small": "10",
+      "md-flex": "33",
+      "md-flex-offset": "33"
+    }
+  }, [_c('md-whiteframe', {
+    staticClass: "wrapper"
+  }, [_c('md-layout', {
+    attrs: {
+      "md-gutter": "",
+      "md-column": ""
+    }
+  }, [_c('span', {
+    staticClass: "md-title"
+  }, [_vm._v("Login")]), _vm._v(" "), _c('form', {
+    ref: "form",
     attrs: {
       "role": "form",
       "method": "POST",
       "action": _vm.routeLogin
     }
-  }, [_c('csrf'), _vm._v(" "), _c('div', {
-    class: [{
-      'has-errors': _vm.errorEmail
-    }, 'form-group']
-  }, [_c('label', {
-    staticClass: "col-md-4 control-label",
-    attrs: {
-      "for": "email"
+  }, [_c('csrf'), _vm._v(" "), _c('md-input-container', {
+    class: {
+      'md-input-invalid': _vm.errorEmail
     }
-  }, [_vm._v("E-Mail Address")]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-6"
-  }, [_c('input', {
+  }, [_c('label', [_vm._v("E-Mail Address")]), _vm._v(" "), _c('md-input', {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: (_vm.email),
       expression: "email"
     }],
-    staticClass: "form-control",
     attrs: {
-      "id": "email",
-      "type": "email",
-      "name": "email",
       "required": "",
-      "autofocus": ""
+      "name": "email"
     },
     domProps: {
-      "value": _vm._s(_vm.email)
+      "value": (_vm.email)
     },
     on: {
       "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.email = $event.target.value
+        _vm.email = $event
       }
     }
   }), _vm._v(" "), (_vm.errorEmail) ? _c('span', {
-    staticClass: "help-block"
-  }, [_c('strong', [_vm._v(_vm._s(_vm.errorEmail))])]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    class: [{
-      'has-errors': _vm.errorPassword
-    }, 'form-group']
-  }, [_c('label', {
-    staticClass: "col-md-4 control-label",
-    attrs: {
-      "for": "password"
+    staticClass: "md-error"
+  }, [_vm._v("\n                            " + _vm._s(_vm.errorEmail) + "\n                        ")]) : _vm._e()], 1), _vm._v(" "), _c('md-input-container', {
+    class: {
+      'md-input-invalid': _vm.errorEmail
     }
-  }, [_vm._v("Password")]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-6"
-  }, [_c('input', {
+  }, [_c('label', [_vm._v("Password")]), _vm._v(" "), _c('md-input', {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: (_vm.password),
       expression: "password"
     }],
-    staticClass: "form-control",
     attrs: {
-      "id": "password",
-      "type": "password",
+      "required": "",
       "name": "password",
-      "required": ""
+      "type": "password"
     },
     domProps: {
-      "value": _vm._s(_vm.password)
+      "value": (_vm.password)
     },
     on: {
       "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.password = $event.target.value
+        _vm.password = $event
       }
     }
   }), _vm._v(" "), (_vm.errorPassword) ? _c('span', {
-    staticClass: "help-block"
-  }, [_c('strong', [_vm._v(_vm._s(_vm.errorPassword))])]) : _vm._e()])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('div', {
-    staticClass: "col-md-6 col-md-offset-4"
-  }, [_c('div', {
-    staticClass: "checkbox"
-  }, [_c('label', [_c('input', {
+    staticClass: "md-error"
+  }, [_vm._v("\n                            " + _vm._s(_vm.errorPassword) + "\n                        ")]) : _vm._e()], 1), _vm._v(" "), _c('md-checkbox', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -38510,45 +38486,29 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       expression: "remember"
     }],
     attrs: {
-      "type": "checkbox",
       "name": "remember"
     },
     domProps: {
-      "checked": Array.isArray(_vm.remember) ? _vm._i(_vm.remember, null) > -1 : (_vm.remember)
+      "value": (_vm.remember)
     },
     on: {
-      "click": function($event) {
-        var $$a = _vm.remember,
-          $$el = $event.target,
-          $$c = $$el.checked ? (true) : (false);
-        if (Array.isArray($$a)) {
-          var $$v = null,
-            $$i = _vm._i($$a, $$v);
-          if ($$c) {
-            $$i < 0 && (_vm.remember = $$a.concat($$v))
-          } else {
-            $$i > -1 && (_vm.remember = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
-          }
-        } else {
-          _vm.remember = $$c
-        }
+      "input": function($event) {
+        _vm.remember = $event
       }
     }
-  }), _vm._v(" Remember Me\n                        ")])])])]), _vm._v(" "), _c('div', {
-    staticClass: "form-group"
-  }, [_c('div', {
-    staticClass: "col-md-8 col-md-offset-4"
-  }, [_c('button', {
-    staticClass: "btn btn-primary",
-    attrs: {
-      "type": "submit"
+  }, [_vm._v("Remember Me")])], 1), _vm._v(" "), _c('md-button', {
+    staticClass: "md-raised md-primary",
+    nativeOn: {
+      "click": function($event) {
+        _vm.login($event)
+      }
     }
-  }, [_vm._v("\n                        Login\n                    ")]), _vm._v(" "), _c('a', {
-    staticClass: "btn btn-link",
+  }, [_vm._v("Login")]), _vm._v(" "), _c('md-button', {
+    staticClass: "md-caption md-dense",
     attrs: {
       "href": _vm.routeRequest
     }
-  }, [_vm._v("\n                        Forgot Your Password?\n                    ")])])])], 1)])])
+  }, [_vm._v("Forgot Your Password?")])], 1)], 1)], 1)], 1)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -38586,15 +38546,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "selected": _vm.logout
     }
   }, [_c('md-icon', [_vm._v("user")]), _vm._v(" "), _c('span', [_vm._v("Logout")])], 1), _vm._v(" "), _c('form', {
+    ref: "logoutForm",
     staticStyle: {
       "display": "none"
     },
     attrs: {
-      "id": "logout-form",
       "action": _vm.routeLogout,
       "method": "POST"
     }
-  }, [_c('csfr')], 1)], 1)], 1)]], 2)
+  }, [_c('csrf')], 1)], 1)], 1)]], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {

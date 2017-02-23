@@ -16,8 +16,9 @@
                         <span>Logout</span>
                     </md-menu-item>
 
-                    <form id="logout-form" :action="routeLogout" method="POST" style="display: none;">
-                        <csfr></csfr>
+                    <form ref="logoutForm" :action="routeLogout"
+                          method="POST" style="display: none;">
+                        <csrf></csrf>
                     </form>
                 </md-menu-content>
             </md-menu>
@@ -39,7 +40,7 @@
         },
         methods: {
             logout: function(){
-                console.log(1);
+                this.$refs.logoutForm.submit();
             }
         }
     }
