@@ -15,16 +15,24 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = {!! json_encode([
-            'csrfToken' => csrf_token(),
-        ]) !!};
+        window.Laravel = {
+            csrfToken: '{{ csrf_token() }}'
+        };
     </script>
 </head>
 <body>
-    <div id="app">
-        @include('layouts.navigation')
+    <div id="app" class="container">
+        <application-wrapper v-cloak>
 
-        @yield('content')
+            <div slot="navigation">
+                @include('layouts.navigation')
+            </div>
+
+            <div slot="content">
+                @yield('content')
+            </div>
+
+        </application-wrapper>
     </div>
 
     <!-- Scripts -->

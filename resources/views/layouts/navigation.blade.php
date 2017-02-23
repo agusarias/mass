@@ -1,4 +1,4 @@
-<md-toolbar>
+<md-whiteframe md-tag="md-toolbar" md-elevation="2" class="md-medium">
     <md-button class="md-icon-button">
         <md-icon>menu</md-icon>
     </md-button>
@@ -9,5 +9,4 @@
             route-login="{{ route('login') }}"
             route-register="{{ route('register') }}"
             route-logout="{{ route('logout') }}"></user-menu>
-
-</md-toolbar>
+</md-whiteframe>

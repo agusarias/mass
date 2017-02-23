@@ -10,12 +10,13 @@ Vue.component('csrf', require('./common/CSRF.vue'));
 
 
 /**
- * Auth components
+ * Navigation components
  */
-Vue.component('login-form', require('./auth/LoginForm.vue'));
+Vue.component('application-wrapper', require('./navigation/ApplicationWrapper.vue'));
+Vue.component('user-menu', require('./navigation/UserMenu.vue'));
 
 
 /**
- * Navigation components
+ * Auth components
  */
-Vue.component('user-menu', require('./navigation/UserMenu.vue'));
+Vue.component('login-form', require('./auth/LoginForm.vue'));

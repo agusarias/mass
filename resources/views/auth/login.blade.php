@@ -7,7 +7,6 @@
             <login-form route-login="{{ route('login') }}"
                         route-request="{{ route('password.request') }}"
                         old-email="{{ old('email') }}"
-                        old-password="{{ old('password') }}"
                         old-remember="{{ old('remember') }}"
                         error-email="{{ $errors->first('email') }}"
                         error-password="{{ $errors->first('password') }}">

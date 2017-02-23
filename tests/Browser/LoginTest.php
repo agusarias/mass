@@ -19,7 +19,7 @@ class LoginTest extends DuskTestCase
             $browser->visit('/login')
                 ->type('email', 'admin@test.com')
                 ->type('password', '123456')
-                ->press('Login')
+                ->click('.js-login-button')
                 ->assertPathIs('/home');
         });
     }
