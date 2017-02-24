@@ -13,12 +13,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script>
-        window.Laravel = {
-            csrfToken: '{{ csrf_token() }}'
-        };
-    </script>
 </head>
 <body>
     <div id="app" class="container">
@@ -28,14 +22,13 @@
                 @include('layouts.navigation')
             </div>
 
-            <div slot="content">
-                @yield('content')
-            </div>
+            @yield('content')
 
         </application-wrapper>
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    @include('layouts.scripts')
+
 </body>
 </html>

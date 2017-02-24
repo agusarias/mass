@@ -2,7 +2,7 @@
     <div class="page-content">
         <slot name="navigation"></slot>
         <div class="main-content">
-            <slot name="content"></slot>
+            <slot></slot>
         </div>
     </div>
 </template>
@@ -15,5 +15,4 @@
         display: flex;
         flex-flow: column
     }
-
 </style>

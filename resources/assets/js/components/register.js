@@ -7,6 +7,7 @@
  * Common components
  */
 Vue.component('csrf', require('./common/CSRF.vue'));
+Vue.component('container', require('./common/Container.vue'));
 
 
 /**

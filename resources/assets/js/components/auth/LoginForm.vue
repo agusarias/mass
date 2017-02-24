@@ -7,10 +7,6 @@
 
             <md-layout md-gutter md-column>
                 <md-layout md-gutter>
-                    <h2 class="md-title">Login</h2>
-                </md-layout>
-
-                <md-layout md-gutter>
                     <form ref="form" role="form" class="form" method="POST" :action="routeLogin">
                         <csrf></csrf>
                         <md-input-container :class="{'md-input-invalid': errorEmail}">
@@ -27,6 +23,10 @@
 
                         <md-checkbox name="remember" v-model="remember">Remember Me</md-checkbox>
                     </form>
+                </md-layout>
+
+                <md-layout md-gutter>
+                    <h2 class="md-title">Login</h2>
                 </md-layout>
 
                 <md-layout md-gutter>

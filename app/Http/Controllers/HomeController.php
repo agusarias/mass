@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+
+        resolve('JavaScript')->put([
+            'user' => $user,
+            'posts' => $user->posts()->with(['comments', 'votes'])->get()
+        ]);
+
+        return view('admin.home');
     }
 }
