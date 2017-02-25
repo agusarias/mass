@@ -21,3 +21,9 @@ Vue.component('user-menu', require('./navigation/UserMenu.vue'));
  * Auth components
  */
 Vue.component('login-form', require('./auth/LoginForm.vue'));
+
+
+/**
+ * Sections
+ */
+Vue.component('section-home', require('./home/Home.vue'));

@@ -36,6 +36,7 @@ window.Vue.prototype.$http = window.axios;
  * UI Kit
  */
 window.Vue.use(require('vue-material'));
+Vue.material.registerTheme(require('./themes'));
 
 /**
  * Components

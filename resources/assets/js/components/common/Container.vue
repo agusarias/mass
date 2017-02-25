@@ -18,7 +18,7 @@
 <style lang="scss" scoped>
 
     .content-container:not(:empty) {
-        padding: 50px;
+        padding: 30px;
         margin: 10px 20px;
         width: 100%;
     }
