@@ -33,6 +33,11 @@ window.axios.defaults.headers.common = {
 window.Vue.prototype.$http = window.axios;
 
 /**
+ * Common App namespace functions
+ */
+require('./common');
+
+/**
  * UI Kit
  */
 window.Vue.use(require('vue-material'));

@@ -1,5 +1,5 @@
 <template>
-    <container class="post-resume">
+    <container class="post-resume" @click.native="seePost(post)">
         <md-ink-ripple></md-ink-ripple>
         <md-layout>
             <h2 class="md-title">{{ post.title }}</h2>
@@ -23,13 +23,17 @@
     export default {
         props: ['post'],
         methods: {
-            trimContent: post => post.content.substr(0, 100)
+            trimContent: post => {
+                return post.content.substr(0, 100);
+            },
+            seePost: post => {
+                location.href = App.route('posts.one', {id: post.id});
+            }
         }
     }
 </script>
 
 <style lang="scss" scoped>
-    @import "../../../sass/variables.scss";
 
     .post-resume{
         cursor: pointer;

@@ -26,4 +26,4 @@ Vue.component('login-form', require('./auth/LoginForm.vue'));
 /**
  * Sections
  */
-Vue.component('section-home', require('./home/Home.vue'));
+Vue.component('section-home', require('./admin/home/Home.vue'));

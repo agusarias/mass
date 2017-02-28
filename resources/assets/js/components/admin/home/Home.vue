@@ -20,7 +20,7 @@
         },
         data: () => {
             return {
-                posts: data.posts
+                posts: App.user.posts
             }
         }
     }

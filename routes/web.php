@@ -17,4 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::get('/posts', 'PostsController@index')->name('posts.list');
+
+    Route::get('/posts/{id}', 'PostsController@post')->name('posts.one');
+
+});
