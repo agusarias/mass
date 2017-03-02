@@ -19,8 +19,14 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin'], function () {
 
-    Route::get('/posts', 'PostsController@index')->name('posts.list');
+    Route::get('/', 'AdminController@index')->name('admin.index');
 
-    Route::get('/posts/{id}', 'PostsController@post')->name('posts.one');
+    Route::get('/posts', 'PostsController@index')->name('posts.index');
+
+    Route::get('/posts/{post}', 'PostsController@post')->name('posts.one');
+
+    Route::post('/post/{post}', 'PostsController@save')->name('posts.save');
+
+    Route::post('/post/', 'PostsController@save')->name('posts.new');
 
 });

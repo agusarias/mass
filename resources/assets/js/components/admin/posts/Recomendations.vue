@@ -1,8 +1,8 @@
 <template>
     <md-layout>
-        <container>
+        <app-container>
             recomendations
-        </container>
+        </app-container>
     </md-layout>
 </template>
 

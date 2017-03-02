@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Input;
+
 class PostsController extends Controller
 {
 
@@ -22,7 +25,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return view('admin.home');
+        return view('admin.posts');
     }
 
     /**
@@ -30,8 +33,22 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function post($id)
+    public function post(Post $post)
     {
+        resolve('JavaScript')->put([
+            'post' => $post
+        ]);
+
         return view('admin.post');
+    }
+
+    public function save(Post $post = null){
+
+        $post->title = Input::get('post.title');
+        $post->content = Input::get('post.content');
+
+        $post->save();
+
+        return response()->json(json_encode($post));
     }
 }

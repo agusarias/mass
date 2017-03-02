@@ -19,7 +19,7 @@
 
     .content-container:not(:empty) {
         padding: 30px;
-        margin: 10px 20px;
+        margin: 10px 0px;
         width: 100%;
     }
 

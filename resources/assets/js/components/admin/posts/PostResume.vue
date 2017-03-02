@@ -1,11 +1,12 @@
 <template>
-    <container class="post-resume" @click.native="seePost(post)">
+    <app-container class="post-resume" @click.native="seePost(post)">
         <md-ink-ripple></md-ink-ripple>
         <md-layout>
             <h2 class="md-title">{{ post.title }}</h2>
-            <span>
-            {{ trimContent(post) }}
-        </span>
+        </md-layout>
+        <md-layout>
+            <span v-html="trimContent(post)">
+            </span>
         </md-layout>
         <md-layout class="actions">
             <div class="actions-wrapper">
@@ -16,7 +17,7 @@
                 <md-icon md-primary>comment</md-icon>
             </div>
         </md-layout>
-    </container>
+    </app-container>
 </template>
 
 <script>
@@ -27,7 +28,7 @@
                 return post.content.substr(0, 100);
             },
             seePost: post => {
-                location.href = App.route('posts.one', {id: post.id});
+                location.href = App.route('posts.one', {post: post.id});
             }
         }
     }
@@ -35,7 +36,7 @@
 
 <style lang="scss" scoped>
 
-    .post-resume{
+    .post-resume {
         cursor: pointer;
     }
 
@@ -47,14 +48,17 @@
         justify-content: flex-end;
 
         .actions-wrapper {
-            *{
+
+            * {
                 float: left;
             }
-            .divider{
+
+            .divider {
                 border: 1px solid black;
                 margin: 0px 20px;
                 height: 23px;
             }
+
         }
     }
 

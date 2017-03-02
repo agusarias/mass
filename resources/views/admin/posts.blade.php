@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section-home></section-home>
+    <section-posts></section-posts>
 
 @endsection
 

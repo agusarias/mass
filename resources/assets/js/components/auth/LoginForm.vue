@@ -8,7 +8,7 @@
             <md-layout md-gutter md-column>
                 <md-layout md-gutter>
                     <form ref="form" role="form" class="form" method="POST" :action="routeLogin">
-                        <csrf></csrf>
+                        <app-csrf></app-csrf>
                         <md-input-container :class="{'md-input-invalid': errorEmail}">
                             <label>E-Mail Address</label>
                             <md-input required v-model="email" name="email"></md-input>
@@ -42,8 +42,6 @@
 <script>
     export default {
         props: {
-            routeLogin: String,
-            routeRequest: String,
             errorEmail: String,
             errorPassword: String,
             oldEmail: String,
@@ -51,6 +49,8 @@
         },
         data: function () {
             return {
+                routeLogin: App.route('login'),
+                routeRequest: App.route('password.request'),
                 email: this.oldEmail,
                 password: '',
                 remember: this.oldRemember,

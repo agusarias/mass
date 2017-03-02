@@ -4,12 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <login-form route-login="{{ route('login') }}"
-                        route-request="{{ route('password.request') }}"
-                        old-email="{{ old('email') }}"
-                        old-remember="{{ old('remember') }}"
-                        error-email="{{ $errors->first('email') }}"
-                        error-password="{{ $errors->first('password') }}">
+            <login-form old-email="{{ old('email') }}"
+                        old-remember="{{ old('remember') }}">
             </login-form>
         </div>
     </div>

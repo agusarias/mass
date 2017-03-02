@@ -18,7 +18,7 @@
 
                     <form ref="logoutForm" :action="routeLogout"
                           method="POST" style="display: none;">
-                        <csrf></csrf>
+                        <app-csrf></app-csrf>
                     </form>
                 </md-menu-content>
             </md-menu>
