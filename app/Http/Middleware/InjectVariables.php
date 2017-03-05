@@ -44,7 +44,7 @@ class InjectVariables
 
         if ($user) {
             // Eager load user data.
-            $user->load('posts.comments', 'posts.comments');
+            $user->load('posts.comments', 'posts.votes');
         }
 
         return $user;
@@ -71,7 +71,7 @@ class InjectVariables
      */
     private function texts()
     {
-        $modules = ['common', 'pagination'];
+        $modules = ['common', 'pagination', 'posts'];
         $langs = ['en'];
         $translations = [];
 

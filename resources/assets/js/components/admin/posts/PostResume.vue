@@ -4,17 +4,16 @@
         <md-layout>
             <h2 class="md-title">{{ post.title }}</h2>
         </md-layout>
-        <md-layout>
-            <span v-html="trimContent(post)">
-            </span>
-        </md-layout>
         <md-layout class="actions">
             <div class="actions-wrapper">
-                <span class="md-subheading">5</span>
+                <span class="md-subheading"> {{ commentsAmount}}</span>
                 <md-icon md-primary>comment</md-icon>
                 <div class="divider"></div>
-                <span class="md-subheading">5</span>
-                <md-icon md-primary>comment</md-icon>
+                <span class="md-subheading"> {{ positiveVotes }}</span>
+                <md-icon md-primary>thumb_up</md-icon>
+                <div class="divider"></div>
+                <span class="md-subheading"> {{ negativeVotes }}</span>
+                <md-icon md-primary>thumb_down</md-icon>
             </div>
         </md-layout>
     </app-container>
@@ -23,10 +22,18 @@
 <script>
     export default {
         props: ['post'],
-        methods: {
-            trimContent: post => {
-                return post.content.substr(0, 100);
+        computed: {
+            commentsAmount() {
+                return this.post.comments.length;
             },
+            positiveVotes() {
+                return this.post.votes.filter(({type}) => type == 'up').length;
+            },
+            negativeVotes() {
+                return this.post.votes.filter(({type}) => type == 'down').length;
+            },
+        },
+        methods: {
             seePost: post => {
                 location.href = App.route('posts.one', {post: post.id});
             }

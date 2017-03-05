@@ -13,7 +13,7 @@ Vue.use(require('vue-quill-editor'))
 Vue.component('app-csrf', require('./common/CSRF.vue'));
 Vue.component('app-container', require('./common/Container.vue'));
 Vue.component('app-button', require('./common/Button.vue'));
-
+Vue.component('app-button-back', require('./common/ButtonBack.vue'));
 
 
 /**
